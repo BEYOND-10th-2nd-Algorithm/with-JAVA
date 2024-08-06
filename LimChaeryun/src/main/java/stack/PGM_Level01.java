@@ -15,7 +15,9 @@ public class PGM_Level01 {
         int leftCount = 0, rightCount = 0, count = 0;
         boolean result = true;
 
-        char[] charArray = br.readLine().toCharArray();
+        String s = br.readLine();
+
+        char[] charArray = s.toCharArray();
 
         for (char c : charArray) {
             stack.push(c);
@@ -43,6 +45,7 @@ public class PGM_Level01 {
             count++;
         }
 
+        // 테스트 2, 6 케이스 이걸 고려 못함
         if (leftCount != rightCount){
             result = false;
         }
