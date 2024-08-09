@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 void recursion(int st, int ext, int dest, int n) {
 
 	if (n == 1) {
