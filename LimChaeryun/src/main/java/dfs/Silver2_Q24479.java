@@ -63,9 +63,12 @@ public class Silver2_Q24479 {
         for (int i = 1; i <= N; i++){
             System.out.println(visit[i]);
         }
+
+//        System.out.println(sb);
     }
 
     static void dfs(int N){
+        // 방문순서 저장
         visit[N] = visitNode++;
 //        sb.append(N).append("\n");
 
