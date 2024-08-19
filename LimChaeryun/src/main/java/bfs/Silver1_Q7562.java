@@ -27,27 +27,41 @@ public class Silver1_Q7562 {
     public static void main(String[] args) throws IOException {
 
 
-
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         StringTokenizer st;
 
         int N = Integer.parseInt(br.readLine());
 
-        while (N-- > 0){
+        while (N > 0){
             size = Integer.parseInt(br.readLine());
 
-            st = new StringTokenizer(br.readLine(), " ");
-            int[] nowP = {Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())};
-            int[] nextP = {Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())};
+//            st = new StringTokenizer(br.readLine(), " ");
+            String nowLine = br.readLine();
+            String[] now = nowLine.split(" ");
+            int nowX = Integer.parseInt(now[0]);
+            int nowY = Integer.parseInt(now[1]);
+
+            String nextLine = br.readLine();
+            String[] next = nextLine.split(" ");
+            int nextX = Integer.parseInt(next[0]);
+            int nextY = Integer.parseInt(next[1]);
+
+//            int[] nowP = {Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())};
+//            int[] nextP = {Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())};
 
             board = new int[size][size];
             visited = new boolean[size][size];
 
-            bfs(nowP[0], nowP[1]);
+            if (nowX == nextX && nowY == nextY){
+                System.out.println(0);
+            } else {
+                bfs(nowX, nowY);
 
-            System.out.println(board[nextP[0]][nextP[1]]);
+                System.out.println(board[nextX][nextY]);
+            }
+
+            N--;
         }
     }
 
