@@ -9,7 +9,8 @@ import java.util.*;
 public class Silver2_Q24446 {
 
     static ArrayList<Integer>[] Node;
-    static boolean[] visited;
+    static int[] visited;
+    static int visitNode = 1;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -23,7 +24,7 @@ public class Silver2_Q24446 {
         for (int i=0; i<N+1; i++){
             Node[i] = new ArrayList<>();
         }
-        visited = new boolean[N+1];
+        visited = new int[N+1];
 
         for (int i=0; i<M; i++){
             st = new StringTokenizer(br.readLine(), " ");
@@ -41,21 +42,24 @@ public class Silver2_Q24446 {
 
         BFS(R);
 
+        for (int i = 1; i <= N; i++){
+            System.out.println(visited[i]);
+        }
 
     }
 
     static void BFS(int start){
         Queue<Integer> que = new LinkedList<>();
         que.offer(start);
-        visited[start] = true;
+        visited[start] = visitNode++;
         while (!que.isEmpty()){
             int curNode = que.poll();
-            System.out.println(curNode);
             for (int i=0; i<Node[curNode].size(); i++){
                 int next = Node[curNode].get(i);
-                if (!visited[next]){
+
+                if (visited[next] == 0){
                     que.offer(next);
-                    visited[next]=true;
+                    visited[next]=visitNode++;
                 }
             }
         }
