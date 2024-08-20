@@ -11,6 +11,7 @@ public class Silver2_Q24446 {
     static ArrayList<Integer>[] Node;
     static int[] visited;
     static int visitNode = 1;
+    static int[] arr;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -40,11 +41,23 @@ public class Silver2_Q24446 {
             Collections.sort(Node[i]);
         }
 
+        arr = new int[N];
+        Arrays.fill(arr, 0);
+
         BFS(R);
 
-        for (int i = 1; i <= N; i++){
-            System.out.println(visited[i]);
+        for (int i = 0; i < arr.length;i++){
+            if ( i != R-1 && arr[i] == 0){
+                arr[i] = -1;
+            }
+
+            System.out.println(arr[i]);
         }
+//        for (int i = 1; i <= N; i++){
+//            System.out.println(visited[i]);
+//        }
+
+
 
     }
 
@@ -60,6 +73,7 @@ public class Silver2_Q24446 {
                 if (visited[next] == 0){
                     que.offer(next);
                     visited[next]=visitNode++;
+                    arr[next-1] = arr[curNode-1] +1;
                 }
             }
         }

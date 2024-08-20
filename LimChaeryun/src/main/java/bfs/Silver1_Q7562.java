@@ -76,8 +76,8 @@ public class Silver1_Q7562 {
             int nowY = start[1];
 
             for (int i =0; i < 8; i++){
-                int newX = start[0] + dx[i];
-                int newY = start[1] + dy[i];
+                int newX = nowX + dx[i];
+                int newY = nowY + dy[i];
 
                 if (newX >= 0 && newX < size){
                     if (newY >= 0 && newY < size){
