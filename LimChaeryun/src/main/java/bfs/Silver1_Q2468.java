@@ -37,7 +37,7 @@ public class Silver1_Q2468 {
         }
 
         // i는 강수량
-        for (int rain = 1; rain < count.length; rain++){
+        for (int rain = 0; rain < count.length; rain++){
             visited = new boolean[N][N];
 
             for (int i = 0; i < N; i++){
