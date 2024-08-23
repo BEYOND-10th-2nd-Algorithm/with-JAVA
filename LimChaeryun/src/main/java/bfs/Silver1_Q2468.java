@@ -10,6 +10,7 @@ public class Silver1_Q2468 {
     static int[] count;
     static int[][] arr;
     static boolean[][] visited;
+    static int max = 0;
 
     static int N;
     static int[] dX = {1, 0, -1, 0};
@@ -20,7 +21,7 @@ public class Silver1_Q2468 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        count = new int[101];
+//        count = new int[101];
 
         N = Integer.parseInt(br.readLine());
 
@@ -31,10 +32,12 @@ public class Silver1_Q2468 {
 
             for (int j = 0; j < N; j++){
                 arr[i][j] = Integer.parseInt(st.nextToken());
-
+                max = Math.max(max, arr[i][j]);
             }
 
         }
+
+        count = new int[max+1];
 
         // i는 강수량
         for (int rain = 0; rain < count.length; rain++){
